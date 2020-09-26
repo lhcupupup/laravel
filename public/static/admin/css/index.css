@@ -1,0 +1,132 @@
+.layui-bg-black {
+    background: #20222A !important;
+}
+
+.layui-nav {
+    background: none !important;
+}
+
+.layui-nav .layui-nav-item a {
+    height: 55px !important;
+    line-height: 55px !important;
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+    background: none !important;
+}
+
+.layui-nav-tree .layui-nav-item dl dd {
+    margin: 2px 0;
+}
+
+.layui-content .layui-tab {
+    margin: 0;
+}
+
+.layui-content .layui-tab-content {
+    top: 41px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding:10px 10px 0 10px !important;
+}
+
+.layui-content .layui-tab-item.layui-show {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    animation: mymove gradientOpacity .8s;
+    -o-animation: gradientOpacity .8s;
+    -moz-animation: gradientOpacity .8s;
+    -webkit-animation: gradientOpacity .8s;
+    /*Safari and Chrome*/
+}
+
+@keyframes gradientOpacity {
+    from {
+        left: 40px;
+        opacity: 0;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes gradientOpacity {
+    from {
+        left: 40px;
+        opacity: 0;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes gradientOpacity {
+    from {
+        left: 40px;
+        opacity: 0;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes gradientOpacity {
+    from {
+        left: 40px;
+        opacity: 0;
+    }
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+.layui-content .layui-tab-item iframe {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+div.layui-header .layui-nav a.btn-nav-hidden > i{
+    float:left;
+    width:20px;
+    color:rgba(255,255,255,.7);
+    line-height: 55px;
+    cursor:pointer;
+}
+div.layui-header .layui-nav a.btn-nav-hidden > i{
+    font-size: 18px;
+}
+.layui-layout-admin .layui-body.left-zero{
+    left:60px !important;
+}
+.layui-layout-admin .layui-side.left-width{
+    width:60px !important;
+}
+.layui-footer.left-zero{
+    left:60px !important;
+}
+.layui-layout-admin .layui-body{
+    transition: left .5s;
+}
+.layui-layout-admin .layui-side{
+    transition: width .5s;
+}
+.layui-footer{
+    transition: left .5s;
+}
+body.iframe-body{
+
+}
+.layui-form-label{
+    width:100px !important;
+}
+.layui-fluid {
+    padding: 15px 15px 0 15px;
+}
