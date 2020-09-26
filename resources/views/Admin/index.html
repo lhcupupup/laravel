@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./index.css">
+
+
+
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">layui 后台布局</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <a href="javascript:;" class="btn-nav-hidden"><i class="layui-icon layui-icon-shrink-right"></i></a>
+
+                <!-- <li class="layui-nav-item"><a href="#">控制台</a></li>
+                <li class="layui-nav-item"><a href="#">商品管理</a></li>
+                <li class="layui-nav-item"><a href="#">用户</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#">邮件管理</a></dd>
+                        <dd><a href="#">消息管理</a></dd>
+                        <dd><a href="#">授权管理</a></dd>
+                    </dl>
+                </li> -->
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        会飞的蜗牛。
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#">基本资料</a></dd>
+                        <dd><a href="#">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="#">退出登录</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all"  id="left-nav-tree">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-home"></i>&nbsp;<cite>后台主页</cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="./main.html" lay-id="0"href="javascript:;">主页</a></dd>
+                            <dd><a lay-href="https://www.baidu.com/"href="javascript:;">主页二</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-username"></i>&nbsp<cite>权限管理</cite></cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="./addAdmin.html" href="javascript:;">管理员添加</a></dd>
+                            <dd><a href="javascript:;">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-user"></i>&nbsp<cite>会员管理</cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="https://www.1.com" href="javascript:;">管理员添加</a></dd>
+                            <dd><a href="javascript:;">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-release"></i>&nbsp<cite>文章管理</cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="https://www.1.com" href="javascript:;">管理员添加</a></dd>
+                            <dd><a href="javascript:;">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-list"></i>&nbsp<cite>留言管理</cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="https://www.1.com" href="javascript:;">管理员添加</a></dd>
+                            <dd><a href="javascript:;">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set"></i>&nbsp<cite>系统设置</cite></a>
+                        <dl class="layui-nav-child">
+                            <dd><a lay-href="https://www.1.com" href="javascript:;">管理员添加</a></dd>
+                            <dd><a href="javascript:;">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-content">
+                <div class="layui-tab"  lay-filter="tabTitle">
+                    <ul class="layui-tab-title" layui-tab-card>
+                        <li class="layui-this" lay-id="0">网站首页</li>
+                        <!-- <li>用户基本管理</li>
+                        <li>权限分配</li>
+                        <li>全部历史商品管理文字长一点试试</li>
+                        <li>订单管理</li> -->
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <iframe src="./main.html"></iframe>
+                        </div>
+                        <!-- <div class="layui-tab-item">3</div>
+                        <div class="layui-tab-item">4</div>
+                        <div class="layui-tab-item">5</div>
+                        <div class="layui-tab-item">6</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+    <script src="./layui/layui.js"></script>
+    <script src="./layui/lay/modules/jquery.js"></script>
+<script>
+    layui.use(['element', 'jquery'], function () {
+        let element = layui.element;
+        let $ = layui.jquery;
+        class TabOperation {
+            constructor(tabTitleId, tabCardList) {
+                this.tabTitleId = tabTitleId;
+                this.tabCardList = tabCardList;
+            }
+
+            init(target) {
+                target.attr('lay-id') ? target.attr('lay-id') : target.attr('lay-id', this.getRandId());
+                let tabCardId = target.attr('lay-id');
+                if (!this.getTabsExists(tabCardId)) {
+                    element.tabAdd('tabTitle', {
+                        title: target.html() + '<i class="layui-icon layui-unselect layui-tab-close" data-id="1">ဆ</i>'
+                        , content: '<iframe src="' + target.attr('lay-href') + '"></iframe>'
+                        , id: tabCardId
+                    });
+
+                }
+                this.tabChange(tabCardId);
+            }
+            getRandId() {
+                return Math.ceil(Math.random() * 10000);
+            }
+            tabChange(tabCardId) {
+                element.tabChange(this.tabTitleId, tabCardId);
+            }
+            getTabsExists(tabCardId) {
+                let exists = false;
+                $(this.tabCardList).each(function (id, ele) {
+                    if ($(ele).attr('lay-id') == tabCardId) {
+                        exists = true;
+                        return false;
+                    }
+                });
+                return exists;
+            }
+            deleteTabCard(id) {
+
+                element.tabDelete(this.tabTitleId, id)
+            }
+        }
+       
+        let tabObj = new TabOperation('tabTitle', 'ul.layui-tab-title>li');
+        $('.layui-nav>.layui-nav-item').on('click', 'dl', function (e) {
+            tabObj.init($(e.target));
+        });
+        $('div.layui-tab>ul.layui-tab-title').on('click', 'i', function (e) {
+            tabObj.deleteTabCard($(e.target).parent().attr('lay-id'));
+        });
+        $('div.layui-header .layui-nav a.btn-nav-hidden > i').click(function () {
+            $('#left-nav-tree cite').toggle();
+            $('#left-nav-tree span').toggle();
+            $('#left-nav-tree li').removeClass('layui-nav-itemed');
+            $('.layui-body').toggleClass('left-zero');
+            $('.layui-footer').toggleClass('left-zero');
+            $('.layui-side').toggleClass('left-width');
+        });
+        $('#left-nav-tree').click(function () {
+            $('#left-nav-tree cite').show();
+            $('#left-nav-tree span').show();
+            $('.layui-body').removeClass('left-zero');
+            $('.layui-footer').removeClass('left-zero');
+            $('.layui-side').removeClass('left-width');
+            
+        })
+    });
+</script>
+</body>
+
+</html>

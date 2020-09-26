@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台管理登录</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./adminLogin.css">
+
+</head>
+
+<body class="layui-layout-body">
+    <canvas></canvas>
+    <div class="box">
+        <li class="li">
+            <i class="layui-icon layui-icon-password"></i>
+            <input type="text" placeholder="请输入管理员帐号。" >
+            <span></span>
+        </li>
+        <li class="li">
+            <i class="layui-icon layui-icon-vercode"></i>
+            <input type="password" placeholder="请输入管理员密码">
+            <span></span>
+        </li>
+        <li class="checkCode">
+            <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2476609755,3832854071&fm=26&gp=0.jpg" alt="">
+            <i class="layui-icon layui-icon-vercode"></i>
+            <input type="text" placeholder="请输入验证码">
+            <span></span>
+        </li>
+        <li class="li">
+            <button>登录</button>
+        </li>
+
+    </div>
+</body>
+<script src="./layui/layui.js"></script>
+<script src="./layui/lay/modules/jquery.js"></script>
+<script>
+    
+window.onload = () => {
+    layui.use(['element','jquery','layer'],function(){
+        let element = layui.element;
+        let $ = layui.jquery;
+        let layer = layui.layer;
+        $('button').click(function(){
+            layer.open({
+                title:'信息:',
+                content:'登录成功',
+                icon:1
+            });
+            location.href="index.html";
+        });
+        $('li img').click(function(){
+            layer.open({
+                title:'验证码',
+                content:'刷新验证码',
+                icon:1
+            });
+            
+        })
+    })
+    class Particle {
+        constructor(ctx) {
+            this.ctx = ctx;
+            this.width = ctx.canvas.width;
+            this.height = ctx.canvas.height;
+            this.px = Math.floor(Math.random() * (ctx.canvas.width + 1));
+            this.py = Math.floor(Math.random() * (ctx.canvas.height + 1));
+            this.angel = Math.floor(Math.random() * 360); // 取随机数，方便计算正反速度
+            this.defaultSpeed = 1; //粒子默认移动速度
+            this.variableSpeed = 1; // 例子移动速度允许最大变量
+            this.speed = this.defaultSpeed + this.variableSpeed * Math.random();
+            //sin,和cos 并没有什么特别的含义，就是为了给粒子取正反运动速度，让他看起来更无序好看
+            //用math.rand() 同样可以
+            this.speedx = this.speed * Math.sin(this.angel); // 计算随机X移动速度
+            this.speedy = this.speed * Math.cos(this.angel); // 计算随机Y移动速度
+        }
+        color = "rgba(0,245,245)"; //粒子颜色
+        defaultRadius = 0.5; //粒子默认半径
+        varibaleRadius = 1; // 粒子允许半径便令最大值
+        minDistance = 150; //粒子之间最小连线距离
+        radius = this.defaultRadius + this.varibaleRadius * Math.random();
+        update() {
+            this.border();
+            this.px += this.speedx;
+            this.py += this.speedy;
+        }
+        border() {
+            // 计算粒子边界碰撞，让他x和y的移动速度取反，重新运动
+            if (this.px <= 0 || this.px >= this.width) {
+                this.speedx *= -1;
+            }
+            if (this.py <= 0 || this.py >= this.height) {
+                this.speedy *= -1;
+            }
+            if (this.px > this.width) {
+                this.px = this.width;
+            }
+            if (this.py > this.height) {
+                this.py = this.height;
+            }
+            if (this.px < 0) {
+                this.px = 0;
+            }
+            if (this.py < 0) {
+                this.py = 0;
+            }
+        }
+        draw() {
+            this.ctx.beginPath();
+            this.ctx.fillStyle = this.color;
+            this.ctx.arc(this.px, this.py, this.radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+    }
+    class Animation {
+        constructor(ctx) {}
+        ctx = ctx;
+        drawLine(cur, particles, ctx) {
+            particles.forEach(ele => {
+                let distance = this.getDistance(cur, ele);
+                let opacity = 1 - distance / ele.minDistance;
+                // 小细节，用两个粒子的距离 除以 连接距离，得出差，
+                // 然后用1减去他们的商，如果差大于0，说明，他们的商小于1
+                // 如果差 = 0 说明 刚好 满足连接距离
+                // 然后用这个差当作 线的背景色的透明度，
+                // 离的越近，他们的商越小，差就越大，线条就颜色越深
+                if (opacity > 0) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(cur.px, cur.py);
+                    this.ctx.lineTo(ele.px, ele.py);
+                    this.ctx.lineWidth = 0.3;
+                    this.ctx.strokeStyle = `rgb(32,245,245,${opacity})`;
+                    this.ctx.stroke();
+                }
+            });
+        }
+        getDistance(cur, target) {
+            return Math.sqrt(Math.pow(cur.px - target.px, 2) + Math.pow(cur.py - target.py, 2));
+        }
+        upCtxSzie(width, height) {}
+    }
+    let ctx = getCtx();// 获得画布
+    ctx.canvas.width = document.documentElement.clientWidth;
+    ctx.canvas.height = document.documentElement.clientHeight;
+    let particles = []; // 定义粒子数组
+    let amt = new Animation(ctx); // 粒子线条绘制对象
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Particle(ctx)); // 循环创建对象，加入数组
+    }
+    let main = () => {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        particles.forEach(ele => {
+            ele.update();
+            ele.draw();
+        });
+        // particles.forEach((ele, index, arr) => {
+        //     amt.drawLine(ele, arr, ctx);
+        // });
+        window.requestAnimationFrame(main); // 逐帧重绘画布动画;
+    }
+    main(); // 调用入口函数
+}
+function getCtx(){
+    return document.querySelector('canvas').getContext('2d');
+}
+</script>
+</body>
+
+</html>

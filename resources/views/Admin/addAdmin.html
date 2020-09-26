@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="/static/admin/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/admin/index.css">
+    <script src="/static/admin/layui/layui.js"></script>
+    <script src="/static/admin/layui/lay/modules/jquery.js"></script>
+
+
+</head>
+
+<body class="layui-layout-body iframe-body">
+    <div class="iframe-box layui-fluid">
+        <form class="layui-form" lay-filter="addAdminForm" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">管理员帐号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入管理员帐号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">管理员密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入管理员密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">管理员名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="password" required lay-verify="required" placeholder="请输入管理员名称"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">后台管理权限</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="like[write]" title="创建">
+                    <input type="checkbox" name="like[read]" title="修改">
+                    <input type="checkbox" name="like[dai]" title="查看">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">会员管理权限</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="like[write]" title="创建">
+                    <input type="checkbox" name="like[read]" title="修改">
+                    <input type="checkbox" name="like[dai]" title="查看">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章管理权限</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="like[write]" title="创建">
+                    <input type="checkbox" name="like[read]" title="修改">
+                    <input type="checkbox" name="like[dai]" title="查看">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">留言管理权限</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="like[write]" title="创建">
+                    <input type="checkbox" name="like[read]" title="修改">
+                    <input type="checkbox" name="like[dai]" title="查看">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">管理员状态</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="a_status" value="0" title="正常"  checked>
+                    <input type="radio" name="a_status" value="1" title="禁用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="submit-btn">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+<script>
+    layui.use(['element', 'jquery','form','layer'], function () {
+        let element = layui.element;
+        let $ = layui.jquery;
+        let form = layui.form;
+        let layer = layui.layer;
+        form.on('submit(submit-btn)',function(data){
+            layer.msg('哈哈哈',{icon:1});
+            console.log(data['form']);
+            
+            return false;
+        });
+    });
+</script>
+
+
+</html>
